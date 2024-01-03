@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--<link rel="stylesheet" type="text/css" href="input.css" /> -->
+  </head>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10;
+    }
+    #form {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #hasil {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <body>
+    <div id="form">
+      <p>INPUT NILAI</p>
+      <table>
+        <tr>
+          <td>NPM :</td>
+          <td>
+            <input id="npm" type="text" />
+          </td>
+        </tr>
+        <tr>
+          <td>NAMA :</td>
+          <td>
+            <input type="text" id="nama" />
+          </td>
+        </tr>
+        <tr>
+          <td>NILAI :</td>
+          <td>
+            <input type="text" id="nilai" />
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="proses()">Proses</button></td>
+          <td><button onclick="reset()">Reset</button></td>
+        </tr>
+      </table>
+    </div>
+    <div id="hasil">
+      <p>HASIL</p>
+      <table>
+        <tr>
+          <td>NPM :</td>
+          <td><span id="hasilNpm"></span></td>
+        </tr>
+        <tr>
+          <td>NAMA :</td>
+          <td><span id="hasilNama"></span></td>
+        </tr>
+        <tr>
+          <td>NILAI :</td>
+          <td><span id="hasilNilai"></span></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+  <script>
+    function proses() {
+      var npm = document.getElementById("npm").value;
+      var nama = document.getElementById("nama").value;
+      var nilai = document.getElementById("nilai").value;
+
+      document.getElementById("hasil").style.display = "flex";
+
+      if (nilai > 80) {
+        perhitunganNilai = "A";
+      } else if (nilai >= 70) {
+        perhitunganNilai = "B";
+      } else if (nilai >= 60) {
+        perhitunganNilai = "C";
+      } else if (nilai >= 50) {
+        perhitunganNilai = "D";
+      }
+
+      document.getElementById("hasilNpm").innerHTML = npm;
+      document.getElementById("hasilNama").innerHTML = nama;
+      document.getElementById("hasilNilai").innerHTML = perhitunganNilai;
+    }
+    function reset() {
+      document.getElementById("hasil").style.display = "none";
+
+      document.getElementById("npm").value = "";
+      document.getElementById("nama").value = "";
+      document.getElementById("nilai").value = "";
+    }
+  </script>
+</html>
